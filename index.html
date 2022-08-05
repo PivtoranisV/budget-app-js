@@ -42,7 +42,31 @@
                 </div>
             </div>
         </div>
-
+        <div class="budget-dashboard">
+            <div class="dash-title">Dashboard</div>
+            <div class="toggle">
+                <div class="tab1">Expenses</div>
+                <div class="tab2">Income</div>
+                <div class="tab3 active">All</div>
+            </div>
+            <div class="hide" id="expense"></div>
+            <div id="income">
+                <ul class="list">
+                    <li class="income" id="0">
+                        <div class="entry">Salary: ₴ 20000</div>
+                        <div id="edit"></div>
+                        <div id="delete"></div>
+                    </li>
+                </ul>
+                <div class="input">
+                    <input type="text" id="income-title-input" name="title" placeholder="Title">
+                    <input type="number" id="income-amount-input" name="amount" placeholder="₴0">
+                    <div class="add-income"><img src="icon/plus.png" alt="plus sign"></div>
+                </div>
+            </div>
+            <div class="hide" id="all"></div>
+        </div>
+    </div>
 </body>
 
 </html>
