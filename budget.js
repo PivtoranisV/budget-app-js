@@ -2,7 +2,7 @@
 const balanceEl = document.querySelector(".balance .value");
 const incomeTotalEl = document.querySelector(".income-total");
 const outcomeTotalEl = document.querySelector(".outcome-total");
-const chartEl = document.querySelector(".chart");
+//const chartEl = document.querySelector(".chart");
 
 const expenseBtn = document.querySelector(".tab1");
 const incomeBtn = document.querySelector(".tab2");
@@ -31,6 +31,10 @@ let income = 0;
 let outcome = 0;
 const DELETE = "delete";
 const EDIT = "edit";
+
+// LOOK IF THERE IS SAVED DATA IN LOCAL STORAGE
+ENTRY_LIST = JSON.parse(localStorage.getItem("entry_list")) || [];
+updateUI();
 
 //EVENT Listeners
 //show/hide tabs in dashboard
@@ -159,6 +163,8 @@ function updateUI() {
     showEntry(allList, entry.type, entry.title, entry.amount, index);
   });
   updateChart(income, outcome);
+
+  localStorage.setItem("entry_list", JSON.stringify(ENTRY_LIST));
 }
 
 //FUNCTIONS
