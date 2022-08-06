@@ -129,6 +129,10 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 
+.active {
+    opacity: 1 !important;
+}
+
 .budget-dashboard input {
     -webkit-user-select: auto;
     -moz-user-select: auto;
