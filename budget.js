@@ -95,8 +95,8 @@ function active(element) {
 function show(element) {
   element.classList.remove("hide");
 }
-function hide(elementsArray) {
-  elementsArray.forEach((element) => {
+function hide(elements) {
+  elements.forEach((element) => {
     element.classList.add("hide");
   });
 }
