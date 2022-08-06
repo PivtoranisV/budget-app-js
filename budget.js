@@ -22,6 +22,9 @@ const expenseAmount = document.getElementById("expense-amount-input");
 
 //VARIABLES
 let ENTRY_LIST = [];
+let balance = 0;
+let income = 0;
+let outcome = 0;
 
 //EVENT Listeners
 //show/hide tabs in dashboard
@@ -96,9 +99,32 @@ function inactive(elements) {
     element.classList.remove("active");
   });
 }
+
 //Add Entry
 function clearInput(inputs) {
   inputs.forEach((input) => {
     input.value = "";
   });
 }
+
+//Calculate Balance, Income & Outcome
+
+function calculateTotal(type, list) {
+  let sum = 0;
+
+  list.forEach((entry) => {
+    if (entry.type == type) {
+      sum += entry.amount;
+    }
+  });
+
+  return sum;
+}
+
+function calculateBalance(income, outcome) {
+  return income - outcome;
+}
+
+income = calculateTotal("income", ENTRY_LIST);
+outcome = calculateTotal("expense", ENTRY_LIST);
+balance = Math.abs(calculateBalance(income, outcome));
