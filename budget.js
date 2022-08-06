@@ -29,6 +29,8 @@ let ENTRY_LIST = [];
 let balance = 0;
 let income = 0;
 let outcome = 0;
+const DELETE = "delete";
+const EDIT = "edit";
 
 //EVENT Listeners
 //show/hide tabs in dashboard
@@ -176,3 +178,5 @@ function clearElement(elements) {
     element.innerHTML = "";
   });
 }
+
+//Delete or Edit Entry
