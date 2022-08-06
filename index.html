@@ -49,22 +49,25 @@
                 <div class="tab2">Income</div>
                 <div class="tab3 active">All</div>
             </div>
-            <div class="hide" id="expense"></div>
-            <div id="income">
-                <ul class="list">
-                    <li class="income" id="0">
-                        <div class="entry">Salary: ₴ 20000</div>
-                        <div id="edit"></div>
-                        <div id="delete"></div>
-                    </li>
-                </ul>
+            <div class="hide" id="income">
+                <ul class="list"></ul>
                 <div class="input">
                     <input type="text" id="income-title-input" name="title" placeholder="Title">
-                    <input type="number" id="income-amount-input" name="amount" placeholder="₴0">
-                    <div class="add-income"><img src="icon/plus.png" alt="plus sign"></div>
+                    <input type="number" id="income-amount-input" name="amount" placeholder="$0">
+                    <div class="add-income"><img src="icon/plus.png" alt=""></div>
                 </div>
             </div>
-            <div class="hide" id="all"></div>
+            <div class="hide" id="expense">
+                <ul class="list"></ul>
+                <div class="input">
+                    <input type="text" id="expense-title-input" name="title" placeholder="Title">
+                    <input type="number" id="expense-amount-input" name="amount" placeholder="$0">
+                    <div class="add-expense"><img src="icon/plus.png" alt=""></div>
+                </div>
+            </div>
+            <div id="all">
+                <ul class="list"></ul>
+            </div>
         </div>
     </div>
     <script src="budget.js"></script>
