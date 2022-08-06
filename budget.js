@@ -64,7 +64,7 @@ addIncome.addEventListener("click", function () {
   let income = {
     type: "income",
     title: incomeTitle.value,
-    amount: parseInt(incomeAmount.value),
+    amount: parseFloat(incomeAmount.value),
   };
   ENTRY_LIST.push(income);
 
@@ -102,14 +102,6 @@ function hide(elements) {
 function inactive(elements) {
   elements.forEach((element) => {
     element.classList.remove("active");
-  });
-}
-
-//FUNCTIONS
-//Add Entry
-function clearInput(inputs) {
-  inputs.forEach((input) => {
-    input.value = "";
   });
 }
 
@@ -174,6 +166,12 @@ function updateUI() {
 function clearElement(elements) {
   elements.forEach((element) => {
     element.innerHTML = "";
+  });
+}
+
+function clearInput(inputs) {
+  inputs.forEach((input) => {
+    input.value = "";
   });
 }
 
