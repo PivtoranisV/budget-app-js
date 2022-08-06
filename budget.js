@@ -53,13 +53,14 @@ allBtn.addEventListener("click", function () {
   inactive([incomeBtn, expenseBtn]);
 });
 
-//Add Entry
+incomeList.addEventListener("click", deleteOrEdit);
+expenseList.addEventListener("click", deleteOrEdit);
+allList.addEventListener("click", deleteOrEdit);
 
+//Add Entry
 addIncome.addEventListener("click", function () {
-  // IF ONE OF THE INPUTS IS EMPTY => EXIT
   if (!incomeTitle.value || !incomeAmount.value) return;
 
-  // SAVE THE ENTRY TO ENTRY_LIST
   let income = {
     type: "income",
     title: incomeTitle.value,
@@ -72,10 +73,8 @@ addIncome.addEventListener("click", function () {
 });
 
 addExpense.addEventListener("click", function () {
-  // IF ONE OF THE INPUTS IS EMPTY => EXIT
   if (!expenseTitle.value || !expenseAmount.value) return;
 
-  // SAVE THE ENTRY TO ENTRY_LIST
   let expense = {
     type: "expense",
     title: expenseTitle.value,
@@ -124,7 +123,6 @@ function calculateTotal(type, list) {
       sum += entry.amount;
     }
   });
-
   return sum;
 }
 
@@ -180,3 +178,35 @@ function clearElement(elements) {
 }
 
 //Delete or Edit Entry
+function deleteOrEdit(event) {
+  const targetBtn = event.target;
+
+  const entry = targetBtn.parentNode;
+
+  if (targetBtn.id == DELETE) {
+    deleteEntry(entry);
+  } else if (targetBtn.id == EDIT) {
+    editEntry(entry);
+  }
+}
+
+function deleteEntry(entry) {
+  ENTRY_LIST.splice(entry.id, 1);
+
+  updateUI();
+}
+
+function editEntry(entry) {
+  console.log(entry);
+  let ENTRY = ENTRY_LIST[entry.id];
+
+  if (ENTRY.type == "income") {
+    incomeAmount.value = ENTRY.amount;
+    incomeTitle.value = ENTRY.title;
+  } else if (ENTRY.type == "expense") {
+    expenseAmount.value = ENTRY.amount;
+    expenseTitle.value = ENTRY.title;
+  }
+
+  deleteEntry(entry);
+}
